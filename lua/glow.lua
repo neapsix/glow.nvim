@@ -13,6 +13,7 @@ local glow_style = vim.g.glow_style or "dark"
 local glow_border = vim.g.glow_border
 local glow_width = vim.g.glow_width
 local glow_use_pager = vim.g.glow_use_pager
+local glow_no_install = vim.g.glow_no_install
 
 local M = {}
 
@@ -158,6 +159,10 @@ function M.close_window()
 end
 
 function M.download_glow()
+  if glow_no_install then
+    api.nvim_err_writeln("glow is not installed and installing is disabled in plugin options")
+    return
+  end
   if vim.fn.executable(bin_path .. "/glow") == 1 then
     local answer = vim.fn.input("latest glow already installed in " .. bin_path .. "/glow, do you want update? Y/n = ")
     answer = string.lower(answer)
