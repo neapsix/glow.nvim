@@ -109,7 +109,7 @@ vim.g.glow_style = "light"
 
 Use `g:glow_no_install` for vimscript config or `vim.g.glow_no_install` for lua config.
 
-If set, this will disable installing glow either automatically or with `:GlowInstall`. Use if you don't want the plugin to install glow for you. 
+If set, this will disable installing `glow` automatically and remove the `:GlowInstall` command. Use if you prefer to install `glow` manually.
 
 Example:
 
